@@ -1,0 +1,117 @@
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Password Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+  <!--This is the styling for the main page-->
+  <style>
+  @media (min-width:320px) {
+    html, body {margin: 0; height: 100%; overflow: hidden}
+    .Vector1,.Vector2,.welcomeTxt,.directionTxt,.blueMenuPic,.paragraph,.user,.nextBtn,.nextTxt{position: absolute;}
+    .Vector1,.Vector2{
+      width: 100%;
+      left: 0%;
+      right: 0%;
+      top: 143px;
+      bottom: 0%;
+    }
+    .welcomeTxt,.directionTxt,.paragraph,.user,.nextTxt{font-family: Ubuntu;font-style: normal;}
+    .welcomeTxt{
+      width: 239px;
+      height: 57px;
+      left: 30px;
+      top: 20px;
+      font-weight: bold;
+      font-size: 50px;
+      line-height: 57px;
+      text-align: center;
+      color: #000000;
+    }
+    .directionTxt{
+      width: 187px;
+      height: 29px;
+      left: 35px;
+      top: 105px;
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 29px;
+      display: flex;
+      align-items: center;
+      color: #000000;
+    }
+    .blueMenuPic{
+      width: 130px;
+      height: 130px;
+      left: calc(50% - 130px/2);
+      top: 270px;
+    }
+    .paragraph{
+      width: 281px;
+      height: 98px;
+      left: calc(50% - 281px/2);
+      top: 458px;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 23px;
+      color: #FFFFFF;
+    }
+    .user{
+      width: 106px;
+      height: 23px;
+      left: calc(50% - 106px/2 + 53px);
+      top: 575px;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 23px;
+      color: #FFFFFF;
+    }
+    .nextBtn{
+      width: 90px;
+      height: 35px;
+      right: 30px;
+      bottom: 10px;
+      background: #8DF35D;
+      border-radius: 70px;
+    }
+    .nextTxt{
+      width: 46px;
+      height: 23px;
+      right: 50px;
+      bottom:17px;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 23px;
+      color: #000000;
+    }
+  }
+  @media (min-width:879px) {
+  .paragraph,.user{
+    color: #000000;
+  }
+  }
+  </style>
+</head>
+<!--Inside of the body elements we add the main pieces to the web app like the title, box, instruction etc-->
+<body style="background-color:#FFE8BB">
+<img class="Vector1" type="image" src="Vector1.svg" />
+<img class="Vector2" type="image" src="Vector2.svg" />
+<h1 class="welcomeTxt">Welcome</h1>
+<p1 class="directionTxt">lets get started!</p1>
+<img class="blueMenuPic" type="image" src="blueMenu.svg" />
+<p2 class="paragraph">“I use PassX often. Absolutely wonderful! PassX is the most valuable business resource we have EVER used.”</p2>
+<p3 class="user">- Talbert Z.</p3>
+<a href="generate.html">
+<div class="nextBtn"></div>
+</a>
+<a href="generate.html">
+<p4 class="nextTxt">Next</p4>
+</a>
+
+
+
+
+
+</body>
+</html>

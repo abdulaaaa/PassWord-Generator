@@ -1,0 +1,234 @@
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Password Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+
+
+  <!--This is the styling for the main page-->
+  <style>
+  @media (min-width:320px) {
+  html, body {margin: 0; height: 100%; overflow: }
+
+  .Vector1,.Vector2,.generateTitle,.directions,.passwordCloudImg,.textbox,.textbox2,.outcomeBox,.outcometxt,.nextBtn,.nextTxt{position: absolute;}
+  .Vector1,.Vector2{
+    width: 100%;
+    left: 0%;
+    right: 0%;
+    top: 143px;
+    bottom: 0%;
+  }
+  .generateTitle{
+    width: 222px;
+    height: 57px;
+    left: 49px;
+    top: 41px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 57px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+  }
+  .directions{
+    width: 316px;
+    height: 87px;
+    left: 49px;
+    top: 120px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+  }
+  .passwordCloudImg{
+    width: 150px;
+    height: 150px;
+    left: calc(50% - 150px/2);
+    top: 139px;
+  }
+  .textbox{
+    width: 285px;
+    height: 54px;
+    left: calc(50% - 285px/2 - 0.5px);
+    top: 276px;
+    background: #FFF1D5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    border: none !important;
+  }
+  .textbox2{
+    width: 285px;
+    height: 54px;
+    left: calc(50% - 285px/2 - 0.5px);
+    top: 353px;
+    background: #FFF1D5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    border: none !important;
+  }
+
+  ::placeholder {
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #999797;
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #999797;
+  }
+
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #999797;
+  }
+  .outcomeBox{
+    height: 190px;
+    left: 11.35%;
+    right: 11.35%;
+    bottom: 50px;
+
+    background: #FFF3C7;
+    border-radius: 20px;
+  }
+  .outcometxt{
+    height: 92px;
+    left: 15.46%;
+    right: 15.7%;
+    top: 472px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+  }
+  .nextBtn{
+    width: 100px;
+    height: 36px;
+    left: calc(50% - 150px/2);
+    bottom: 7px;
+    background: #8DF35D;
+    border-radius: 70px;
+  }
+  .nextTxt{
+    width: 40px;
+    height: 23px;
+    left: calc(50% - 95px/2);
+    bottom: 15px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #000000;
+  }
+}
+  </style>
+
+</head>
+
+  <!--Inside of the body elements we add the main pieces to the web app like the title, box, instruction etc-->
+<body scroll="no" style="overflow: hidden; background-color:#FFE8BB;" >
+  <img class="Vector1" type="image" src="Vector1.svg" />
+  <img class="Vector2" type="image" src="Vector2.svg" />
+  <h1 class="generateTitle">Generate</h1>
+  <img class="passwordCloudImg" type="image" src="passwordCloud.svg" />
+  <p1 class="directions">Please enter the length of the password and website name. Then click next.</p1>
+  <form>
+    <input id = "inputLength" class="textbox" type="number" placeholder="number">
+  </form>
+  <form>
+    <input id="inputCompany"class="textbox2" type="text" placeholder="company name">
+  </form>
+  <div class="outcomeBox"></div>
+  <p2 id="myText"class="outcometxt"></p2>
+
+
+
+
+
+
+  <div id="nextBtnId" class="nextBtn"></div>
+
+  <p4 id="nextTxtId" class="nextTxt">Next</p4>
+
+  <!--Inside the script tag we have the main algoritim for generating the password-->
+
+  <script>
+
+/* we are setting a function when the Next button is clicked */
+  document.getElementById("nextBtnId").addEventListener("click", myFunction);
+
+function myFunction() {
+  /*we are getting both of the user input and giving it a variable*/
+  var lengthOfText = document.getElementById("inputLength").value;
+  var name = document.getElementById("inputCompany").value;
+
+/*We are declaring two more variables. One for the character we will use in the password, and one for the return value which is retVal*/
+  var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=",
+      retVal = "";
+
+/*In this for loop whe are getting the length of the password the user specified and pulling random characters
+from the charset variable and putting it into the return value*/
+      for (var i = 0, n = charset.length; i < lengthOfText; ++i) {
+          retVal += charset.charAt(Math.floor(Math.random() * n));
+
+      }
+  /*We are now displaying our output which is the new password*/
+  document.getElementById("myText").innerHTML = retVal + " is your password for " + name;
+}
+
+/*This function is the same as the last one but only do the same stuff again only if the Next text was clicked instead of the button*/
+  document.getElementById("nextTxtId").addEventListener("click", myFunctionOne);
+
+  function myFunctionOne() {
+    var lengthOfText = document.getElementById("inputLength").value;
+    var name = document.getElementById("inputCompany").value;
+    var length =lengthOfText,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=",
+        retVal = "";
+
+        for (var i = 0, n = charset.length; i < length; ++i) {
+            retVal += charset.charAt(Math.floor(Math.random() * n));
+
+        }
+    document.getElementById("myText").innerHTML = retVal + " is your password for " + name;
+  }
+
+
+
+
+  </script>
+
+
+
+</body>
+</html>
